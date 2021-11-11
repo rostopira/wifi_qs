@@ -4,6 +4,7 @@ import android.graphics.drawable.Icon;
 import android.net.wifi.WifiManager;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
+import android.os.Build;
 
 public class WifiTileService extends TileService implements WifiStateListener {
     WifiStateReceiver wifiStateReceiver;
@@ -25,17 +26,32 @@ public class WifiTileService extends TileService implements WifiStateListener {
         switch (state) {
             case DISABLED:
                 tile.setIcon(Icon.createWithResource(this, R.drawable.disabled));
-                tile.setLabel("OFF");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    tile.setLabel("Wi-Fi");
+                    tile.setSubtitle(("Off"));
+                } else {
+                    tile.setLabel("OFF");
+                }
                 tile.setState(Tile.STATE_INACTIVE);
                 break;
             case ENABLED:
                 tile.setIcon(Icon.createWithResource(this, R.drawable.enabled));
-                tile.setLabel("ON");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    tile.setLabel("Wi-Fi");
+                    tile.setSubtitle(("Disconnected"));
+                } else {
+                    tile.setLabel("ON");
+                }
                 tile.setState(Tile.STATE_ACTIVE);
                 break;
             case CONNECTED:
                 tile.setIcon(Icon.createWithResource(this, R.drawable.connected));
-                tile.setLabel(ssid != null ? ssid : "CONNECTED");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    tile.setLabel(("Wi-Fi"));
+                    tile.setSubtitle(ssid != null ? ssid : "Connected");
+                } else {
+                    tile.setLabel(ssid != null ? ssid : "Connected");
+                }
                 tile.setState(Tile.STATE_ACTIVE);
                 break;
         }
