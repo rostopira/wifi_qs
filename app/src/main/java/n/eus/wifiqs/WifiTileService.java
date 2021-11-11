@@ -4,6 +4,7 @@ import android.graphics.drawable.Icon;
 import android.net.wifi.WifiManager;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
+import android.os.Build;
 
 public class WifiTileService extends TileService implements WifiStateListener {
     WifiStateReceiver wifiStateReceiver;
