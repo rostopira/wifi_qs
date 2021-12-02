@@ -30,7 +30,7 @@ public class WifiTileService extends TileService implements WifiStateListener {
                     tile.setLabel("Wi-Fi");
                     tile.setSubtitle(("Off"));
                 } else {
-                    tile.setLabel("OFF");
+                    tile.setLabel("Off");
                 }
                 tile.setState(Tile.STATE_INACTIVE);
                 break;
@@ -40,7 +40,7 @@ public class WifiTileService extends TileService implements WifiStateListener {
                     tile.setLabel("Wi-Fi");
                     tile.setSubtitle(("Disconnected"));
                 } else {
-                    tile.setLabel("ON");
+                    tile.setLabel("Disconnected");
                 }
                 tile.setState(Tile.STATE_ACTIVE);
                 break;
