@@ -1,3 +1,12 @@
+*DEPRECATED*: There is now an easier and better way to bring back those buttons: https://www.xda-developers.com/bring-back-wifi-mobile-data-quick-settings-tiles-android-12-adb/
+Just execute in adb shell:
+```
+settings put global settings_provider_model false
+settings put secure sysui_qs_tiles "wifi,cell,$(settings get secure sysui_qs_tiles)"
+```
+
+
+
 Google has removed *Wi-Fi* from QS in Android 12 replacing it with useless *Internet* button
 This tiny project brings it back
 
