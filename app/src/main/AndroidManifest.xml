@@ -23,7 +23,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".LongPressReceiver">
+        <activity android:name=".LongPressReceiver"
+            android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
             </intent-filter>
