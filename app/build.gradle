@@ -3,7 +3,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    namespace 'n.eus.wifiqs'
+    compileSdk 33
 
     defaultConfig {
         applicationId "n.eus.wifiqs"
