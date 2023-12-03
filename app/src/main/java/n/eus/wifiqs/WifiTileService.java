@@ -27,30 +27,30 @@ public class WifiTileService extends TileService implements WifiStateListener {
             case DISABLED:
                 tile.setIcon(Icon.createWithResource(this, R.drawable.disabled));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    tile.setLabel("Wi-Fi");
-                    tile.setSubtitle(("Off"));
+                    tile.setLabel(getString(R.string.wifi));
+                    tile.setSubtitle(getString(R.string.off));
                 } else {
-                    tile.setLabel("Off");
+                    tile.setLabel(getString(R.string.off));
                 }
                 tile.setState(Tile.STATE_INACTIVE);
                 break;
             case ENABLED:
                 tile.setIcon(Icon.createWithResource(this, R.drawable.enabled));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    tile.setLabel("Wi-Fi");
-                    tile.setSubtitle(("Disconnected"));
+                    tile.setLabel(getString(R.string.wifi));
+                    tile.setSubtitle(getString(R.string.disconnected));
                 } else {
-                    tile.setLabel("Disconnected");
+                    tile.setLabel(getString(R.string.disconnected));
                 }
                 tile.setState(Tile.STATE_ACTIVE);
                 break;
             case CONNECTED:
                 tile.setIcon(Icon.createWithResource(this, R.drawable.connected));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    tile.setLabel(("Wi-Fi"));
-                    tile.setSubtitle(ssid != null ? ssid : "Connected");
+                    tile.setLabel(getString(R.string.wifi));
+                    tile.setSubtitle(ssid != null ? ssid : getString(R.string.connected));
                 } else {
-                    tile.setLabel(ssid != null ? ssid : "Connected");
+                    tile.setLabel(ssid != null ? ssid : getString(R.string.connected));
                 }
                 tile.setState(Tile.STATE_ACTIVE);
                 break;
