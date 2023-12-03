@@ -55,7 +55,7 @@ public class SetupActivity extends Activity {
         sbm.requestAddTileService(
             new ComponentName(BuildConfig.APPLICATION_ID, BuildConfig.APPLICATION_ID + ".WifiTileService"),
             getString(R.string.wifi),
-            Icon.createWithResource(this, R.drawable.connected),
+            Icon.createWithResource(this, R.drawable.rss_4),
             getMainExecutor(),
             resultCode -> {}
         );
