@@ -21,7 +21,7 @@ public class WifiTileService extends TileService implements WifiStateListener {
     }
 
     @Override
-    public void onWifiStateChanged(WifiState state, String ssid) {
+    public void onWifiStateChanged(WifiState state, String ssid, int rss) {
         final Tile tile = getQsTile();
         switch (state) {
             case DISABLED:
@@ -45,7 +45,7 @@ public class WifiTileService extends TileService implements WifiStateListener {
                 tile.setState(Tile.STATE_ACTIVE);
                 break;
             case CONNECTED:
-                tile.setIcon(Icon.createWithResource(this, R.drawable.rss_4));
+                tile.setIcon(iconFor(rss));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     tile.setLabel(getString(R.string.wifi));
                     tile.setSubtitle(ssid != null ? ssid : getString(R.string.connected));
@@ -56,6 +56,19 @@ public class WifiTileService extends TileService implements WifiStateListener {
                 break;
         }
         tile.updateTile();
+    }
+
+    private Icon iconFor(int rss) {
+        final int resId;
+        switch (rss) {
+            case 0: resId = R.drawable.rss_0; break;
+            case 1: resId = R.drawable.rss_1; break;
+            case 2: resId = R.drawable.rss_2; break;
+            case 3: resId = R.drawable.rss_3; break;
+            case 4: resId = R.drawable.rss_4; break;
+            default: resId = R.drawable.rss_5; break;
+        }
+        return Icon.createWithResource(this, resId);
     }
 
     @Override

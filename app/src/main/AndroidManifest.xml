@@ -26,7 +26,7 @@
         <service
             android:name=".WifiTileService"
             android:label="@string/wifi"
-            android:icon="@drawable/rss_4"
+            android:icon="@drawable/rss_5"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
             android:exported="true">
             <intent-filter>
