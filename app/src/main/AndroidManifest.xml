@@ -11,20 +11,33 @@
         android:allowBackup="true"
         android:label="WiFi QS"
         android:supportsRtl="true"
-        tools:ignore="AllowBackup">
+        tools:ignore="AllowBackup,MissingApplicationIcon">
+
+        <activity
+            android:name=".SetupActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.DeviceDefault">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".WifiTileService"
-            android:label="Wi-Fi"
+            android:label="@string/wifi"
             android:icon="@drawable/connected"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
 
-        <activity android:name=".LongPressReceiver"
-            android:excludeFromRecents="true">
+        <activity
+            android:name=".LongPressReceiver"
+            android:excludeFromRecents="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
             </intent-filter>

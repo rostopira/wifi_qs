@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wifi">Wi-Fi</string>
+    <string name="loc_permission_description">Location permission is required to show current Wi-Fi network name</string>
+    <string name="loc_permission_button">Allow location permission</string>
+    <string name="add_to_qs_description">Add this tile into Quick Settings panel</string>
+    <string name="add_to_qs_button">Add to quick tiles</string>
+</resources>
