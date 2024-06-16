@@ -24,6 +24,9 @@ settings put secure sysui_qs_tiles "wifi,cell,$(settings get secure sysui_qs_til
 
 You didn't gave app permission to use location. It's required to gather network info.
 
+## I want Bluetooth tile
+Check out [BT QS](https://github.com/rostopira/bt_qs)
+
 ## I want internet toggle
 
 Nope, not possible without root.
